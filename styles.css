@@ -1,0 +1,66 @@
+*,*::before,*::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #111827;
+    color: #F9FAFB;
+    padding: 10px 0 0 20px;
+}
+h1{
+    color: #8B5CF6;
+    margin-bottom: 10px;
+}
+button{
+    background-color: #3B82F6;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    width: 80px;
+    height: 30px;
+}
+button:hover{
+    background-color: #2563EB;
+    cursor: pointer;
+}
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(auto,250px));
+    gap: 12px;
+}
+.container h2{
+    font-weight: 400;
+    font-size: 20px;
+    display: inline;
+}
+.container span{
+    font-size: 20px;
+} 
+.card{
+    background-color: #1F2937;
+    border: 1px solid #374151;
+    border-radius: 16px;
+    box-shadow: 0 12px 25px rgba(0,0,0,.4);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.card div{
+    text-align: center;
+}
+.button{
+    text-align: center;
+}
+.card:hover{
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+.title {
+    color: #A78BFA;
+}
+.author,
+.pages,
+.status {
+    color: #D1D5DB;
+}
