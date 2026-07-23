@@ -4,13 +4,17 @@
     padding: 0;
 }
 body{
+    font-family: 'Cormorant Garamond',serif;
     background-color: #111827;
     color: #F9FAFB;
-    padding: 10px 0 0 20px;
+    padding: 10px 0 20px 20px;
 }
 h1{
     color: #8B5CF6;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+}
+.add{
+    margin-bottom: 20px;
 }
 button{
     background-color: #3B82F6;
@@ -27,7 +31,7 @@ button:hover{
 .container{
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(auto,250px));
-    gap: 12px;
+    gap: 20px;
 }
 .container h2{
     font-weight: 400;
