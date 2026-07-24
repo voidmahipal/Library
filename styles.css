@@ -8,15 +8,20 @@ body{
     background-color: #111827;
     color: #F9FAFB;
     padding: 10px 0 20px 20px;
+    display: flex;
+    flex-direction: column;
 }
 h1{
     color: #8B5CF6;
     margin-bottom: 20px;
 }
+button:hover{
+    cursor: pointer;
+}
 .add{
     margin-bottom: 20px;
 }
-button{
+.button button,h1+button{
     background-color: #3B82F6;
     color: white;
     border: none;
@@ -24,9 +29,8 @@ button{
     width: 80px;
     height: 30px;
 }
-button:hover{
+.button button:hover,h1+button:hover{
     background-color: #2563EB;
-    cursor: pointer;
 }
 .container{
     display: grid;
@@ -67,4 +71,78 @@ button:hover{
 .pages,
 .status {
     color: #D1D5DB;
+}
+dialog{
+    background-color: #1E293B;
+    color: #F8FAFC;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    width:400px;
+    align-self: center;
+    justify-self: center;
+}
+dialog::backdrop{
+    background: rgba(0,0,0,0.5);
+}
+form{
+    font-size: 25px;
+    color: #CBD5E1;
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+form>div{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+input{
+    width: 200px;
+    height: 30px;
+    padding: 10px;
+    font-size: 15px;
+    background-color: #334155;
+    color: #F8FAFC;
+    border: 1px solid #475569;
+    border-radius: 8px;
+}
+input:focus{
+    outline: none;
+    border-color: #10B981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.3);
+}
+.close{
+    background-color: #475569;
+    color: #F8FAFC;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    margin-left: 95%;
+}
+form div button{
+    background-color: #10B981;
+    color: white;
+    width: 200px;
+    height: 30px;
+    border-radius: 8px;
+    border: none;
+}
+.sub_btn{
+    align-items: center;
+}
+.yes,.no{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.yes input,.no input{
+    width: 40px;
+    height: 20px;
 }

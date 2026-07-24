@@ -1,6 +1,19 @@
-const mylib = [];
 const container = document.querySelector(".container");
+
 const add_btn = document.querySelector(".add");
+const dialog = document.querySelector("dialog");
+const close_btn = document.querySelector(".close");
+
+const form = document.querySelector("form");
+const title = document.querySelector("#title");
+const author = document.querySelector("#author");
+const num = document.querySelector("#num");
+
+let remove_btns = document.querySelectorAll(".remove");
+remove_btns=Array.from(remove_btns);
+
+let toggle_btns = document.querySelectorAll(".toggle");
+toggle_btns=Array.from(toggle_btns);
 
 function book(title,author,pages,status) {
     this.title=title;
@@ -12,7 +25,6 @@ function book(title,author,pages,status) {
 
 function addBookToLib(title,author,pages,status) {
     const newBook = new book(title,author,pages,status);
-    mylib.push(newBook);
     const card = document.createElement("article");
     card.classList.add("card");
 
@@ -45,6 +57,7 @@ function addBookToLib(title,author,pages,status) {
     const st = document.createElement("h2");
     st.textContent="Status : ";
     const flag = document.createElement("span");
+    flag.classList.add("st");
     flag.textContent=status;
     book_status.appendChild(st);
     book_status.appendChild(flag);
@@ -52,14 +65,18 @@ function addBookToLib(title,author,pages,status) {
     const toggle = document.createElement("div");
     toggle.classList.add("button");
     const btn = document.createElement("button");
+    btn.classList.add("toggle");
     btn.textContent="Toggle";
+    add_event_list_toggle(btn);
     toggle.appendChild(btn);
 
     const remove = document.createElement("div");
     remove.classList.add("button");
     const rbtn = document.createElement("button");
+    rbtn.classList.add("remove");
     rbtn.textContent="Remove";
     remove.appendChild(rbtn);
+    add_event_list(rbtn);
 
     card.appendChild(book_title);
     card.appendChild(book_author);
@@ -71,6 +88,49 @@ function addBookToLib(title,author,pages,status) {
     container.appendChild(card);
 }
 
-add_btn.addEventListener("click",()=>{
-    addBookToLib("Crime & punishment","Fyodor Dostoevsky","750","Read");
+function add_event_list(btn) {
+    btn.addEventListener("click",(e)=>{
+        const card = e.target.closest(".card");
+        container.removeChild(card);
+    })
+}
+
+function add_event_list_toggle(btn) {
+    btn.addEventListener("click",(e)=>{
+        const card = e.target.closest(".card");
+        const span = card.querySelector(".st");
+        if(span.textContent==="Read") {
+            span.textContent="Not read";
+        }
+        else{
+            span.textContent="Read";
+        }
+    })
+}
+
+for(let btn of remove_btns) {
+    add_event_list(btn);
+}
+
+for(let btn of toggle_btns) {
+    add_event_list_toggle(btn);
+}
+
+add_btn.addEventListener("click",(e)=>{
+    dialog.showModal();
+})
+form.addEventListener("submit",(e)=>{
+    e.preventDefault();
+    dialog.close();
+
+    const book_title = title.value;
+    const book_author = author.value;
+    const book_len = num.value;
+    const read_status = document.querySelector('input[name="read"]:checked').value;
+    
+    addBookToLib(book_title,book_author,book_len,read_status);
+    form.reset();
+})
+close_btn.addEventListener("click", ()=>{
+    dialog.close();
 })
