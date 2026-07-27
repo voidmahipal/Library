@@ -15,12 +15,17 @@ remove_btns=Array.from(remove_btns);
 let toggle_btns = document.querySelectorAll(".toggle");
 toggle_btns=Array.from(toggle_btns);
 
-function book(title,author,pages,status) {
-    this.title=title;
-    this.author=author;
-    this.pages=pages;
-    this.status=status;
-    this.id = self.crypto.randomUUID();
+class book{
+    constructor(title,author,pages,status) {
+        this.title=title;
+        this.author=author;
+        this.pages=pages;
+        this.status=status;
+        this.id = self.crypto.randomUUID();
+    }
+    toggleStatus() {
+        this.status=this.status==="Read" ? "Notread" : "Read";
+    }
 }
 
 function addBookToLib(title,author,pages,status) {
