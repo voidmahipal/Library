@@ -136,6 +136,33 @@ form.addEventListener("submit",(e)=>{
     addBookToLib(book_title,book_author,book_len,read_status);
     form.reset();
 })
+title.addEventListener("invalid", () => {
+    if (title.validity.valueMissing) {
+        title.setCustomValidity("The title cannot be empty lil bro");
+    }
+});
+title.addEventListener("input", () => {
+    title.setCustomValidity("");
+});
+author.addEventListener("invalid", () => {
+    if (author.validity.valueMissing) {
+        author.setCustomValidity("The author name cannot be empty lil bro");
+    }
+});
+author.addEventListener("input", () => {
+    author.setCustomValidity("");
+});
+num.addEventListener("invalid", () => {
+    if (num.validity.valueMissing) {
+        num.setCustomValidity("The num cannot be empty");
+    }
+    else if(num.validity.rangeUnderflow) {
+        num.setCustomValidity("Why would there be the number of pages less than 1");
+    }
+});
+num.addEventListener("input", () => {
+    num.setCustomValidity("");
+});
 close_btn.addEventListener("click", ()=>{
     dialog.close();
 })
